@@ -3,5 +3,6 @@
 SELECT "DueDate",
        DENSE_RANK() OVER (ORDER BY AVG("OrderQty")) AS "Rank"
 FROM "Production"."WorkOrder"
+WHERE "OrderQty" > 0
 GROUP BY "DueDate"
 HAVING AVG("OrderQty") < 10;
