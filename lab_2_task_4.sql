@@ -2,7 +2,8 @@
 -- стоимость товаров больше 1000 и 100 соответственно (из выборки исключить пустые поля).
 SELECT "Color"
 FROM "Production"."Product"
-WHERE "Color" IS NOT NULL 
+WHERE "StandardCost" > 0 
+      AND "Color" IS NOT NULL 
       AND "Color" != ''
 GROUP BY "Color"
 HAVING SUM("StandardCost") > 1000 
