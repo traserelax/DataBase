@@ -15,10 +15,5 @@ WHERE
     AND (
       SELECT COUNT(DISTINCT p2."Style")
         FROM "Production"."Product" AS p2
-        WHERE p2."ProductID" = p1."ProductID"
-        ) = 1
-    AND (
-      SELECT COUNT(DISTINCT p2."Color")
-        FROM "Production"."Product" AS p2
-        WHERE p2."ProductID" = p1."ProductID"
+        WHERE p2."Style" = p1."Style"
         ) = 1;
